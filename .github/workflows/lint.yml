@@ -1,0 +1,27 @@
+name: Python Linting
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        pip install black pylint
+    - name: Run Black formatting
+      uses: psf/black@stable
+      with:
+        options: "--check --verbose"
+        src: "."
+    - name: Run PyLint
+      run: pylint **/*.py
