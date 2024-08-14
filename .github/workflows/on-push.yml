@@ -45,7 +45,7 @@ jobs:
       #     options: "--check --verbose --exclude tests/fixtures.py --exclude pymammotion/proto"
       #     src: "pymammotion"
       - name: Run PyLint
-        run: poetry run pylint --exclude=mammotion/proto **/*.py
+        run: poetry run pylint --ignore=mammotion/proto **/*.py
       - name: Python Ruff Lint and Format
         uses: adityabhangle658/ruff-python-lint-format-check-pr@v1.0.3
 
