@@ -42,7 +42,7 @@ jobs:
       - name: Run Black formatting
         uses: psf/black@stable
         with:
-          options: "--check --verbose --exclude tests/fixtures.py"
+          options: "--check --verbose --exclude tests/fixtures.py --exclude pymammotion/proto"
           src: "pymammotion"
       - name: Run PyLint
         run: poetry run pylint **/*.py
