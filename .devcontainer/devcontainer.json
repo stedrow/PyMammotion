@@ -1,0 +1,30 @@
+{
+    "name": "PyMammotion Development Container",
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+                "python.formatting.provider": "black",
+                "mypy-type-checker.importStrategy": "fromEnvironment",
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.sortImports": true
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.pylint",
+                "ms-python.mypy-type-checker"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "postCreateCommand": "poetry install",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "workspaceFolder": "/workspace"
+}
