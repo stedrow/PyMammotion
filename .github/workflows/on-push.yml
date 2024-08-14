@@ -43,7 +43,7 @@ jobs:
         uses: psf/black@stable
         with:
           options: "--check --verbose --exclude tests/fixtures.py"
-          src: "."
+          src: "pymammotion"
       - name: Run PyLint
         run: poetry run pylint **/*.py
       - name: Python Ruff Lint and Format
@@ -79,4 +79,3 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Install project
         run: poetry install --no-interaction
-      # Add any additional build steps here
